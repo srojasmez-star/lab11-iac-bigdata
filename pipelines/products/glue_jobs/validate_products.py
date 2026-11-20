@@ -63,6 +63,15 @@ print(f"Duplicated product IDs: {duplicate_count}")
 print(f"Invalid Silver rows: {invalid_silver}")
 print(f"Invalid Gold rows: {invalid_gold}")
 print(f"Gold products total: {gold_total}")
+duplicated_categories = (
+    gold.groupBy("category")
+    .count()
+    .filter(F.col("count") > 1)
+    .count()
+)
+
+print(f"Duplicated Gold categories: {duplicated_categories}")
+assert duplicated_categories == 0
 
 assert duplicate_count == 0
 assert invalid_silver == 0
