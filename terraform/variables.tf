@@ -44,3 +44,14 @@ variable "catalog_id" {
   type        = string
   default     = "000000000000"
 }
+variable "glue_role_arn" {
+  description = "Rol simulado para Glue Jobs"
+  type        = string
+  default     = "arn:aws:iam::000000000000:role/ucv-glue-role"
+}
+
+variable "glue_job_run_timeout" {
+  description = "Timeout del Glue Job"
+  type        = number
+  default     = 30
+}
